@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\APIFetchController;
+use App\Http\Controllers\FlightController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
+Route::get('/flight', function () {
+    return view('flight');
+});
+
+Route::get('/flightsearch', function () {
+    return view('flightsearch');
+});
+
+Route::get('/flightsearch', [FlightController::class, 'flightsearch']);
 Route::get('/fetchapi', [APIFetchController::class, 'fetchapi']);
 
 
